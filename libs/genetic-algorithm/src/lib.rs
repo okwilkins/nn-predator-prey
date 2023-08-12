@@ -27,11 +27,11 @@ pub trait Individual {
 }
 
 pub trait SelectionMethod {
-    fn select<I>(
+    fn select<'a, I>(
         &self,
         rng: &mut dyn RngCore,
-        population: &'a I
-    ) -> &I
+        population: &'a [I]
+    ) -> &'a I
     where
         I: Individual;
 }
